@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/WelcomeFragment">
+
+    <fragment
+        android:id="@+id/WelcomeFragment"
+        android:name="dev.ostfalia.iotcam.ui.fragments.WelcomeFragment"
+        android:label="@string/welcome_fragment_label"
+        tools:layout="@layout/fragment_welcome">
+
+
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/CameraPreviewFragment" />
+        <action
+            android:id="@+id/action_WelcomeFragment_to_LibraryFragment"
+            app:destination="@id/VideoListViewFragment" />
+        <action
+            android:id="@+id/action_WelcomeFragment_to_sensorFragment"
+            app:destination="@id/sensorFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/VideoListViewFragment"
+        android:name="dev.ostfalia.iotcam.ui.fragments.VideoListViewFragment"
+        android:label="@string/video_list_fragment_label"
+        tools:layout="@layout/fragment_videolist">
+
+        <argument
+            android:name="filePaths"
+            app:argType="string[]" />
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/CameraPreviewFragment" />
+        <action
+            android:id="@+id/action_WelcomeFragment_to_LibraryFragment"
+            app:destination="@id/VideoListViewFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/LibraryFragment"
+        android:name="dev.ostfalia.iotcam.ui.fragments.WelcomeFragment"
+        android:label="@string/welcome_fragment_label"
+        tools:layout="@layout/fragment_library">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/CameraPreviewFragment" />
+        <action
+            android:id="@+id/action_WelcomeFragment_to_LibraryFragment"
+            app:destination="@id/VideoListViewFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/CameraPreviewFragment"
+        android:name="dev.ostfalia.iotcam.ui.fragments.CameraPreviewFragment"
+        android:label="{width}x{height} {fps}fps"
+        tools:layout="@layout/fragment_camera_preview">
+
+        <argument
+            android:name="height"
+            app:argType="integer" />
+
+        <argument
+            android:name="width"
+            app:argType="integer" />
+
+        <argument
+            android:name="fps"
+            app:argType="integer" />
+
+        <argument
+            android:name="itemNo"
+            app:argType="integer" />
+
+        <argument
+            android:name="projectID"
+            app:argType="string"
+            app:nullable="true"
+            />
+
+
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/CameraPreviewFragment"
+            app:popUpTo="@id/CameraPreviewFragment"
+            app:popUpToInclusive="true"
+            />
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/VideoListViewFragment"
+            app:popUpTo="@id/CameraPreviewFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_Camera_to_Camera"
+            app:destination="@id/CameraPreviewFragment"
+            app:popUpTo="@id/CameraPreviewFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_WelcomeFragment_to_LibraryFragment"
+            app:destination="@id/VideoListViewFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/sensorFragment"
+        android:name="dev.ostfalia.iotcam.ui.fragments.sensors.SensorFragmentView"
+        android:label="SensorFragment" >
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/CameraPreviewFragment" />
+        <action
+            android:id="@+id/action_sensorFragment_to_WelcomeFragment"
+            app:destination="@id/WelcomeFragment" />
+        <action
+            android:id="@+id/action_WelcomeFragment_to_LibraryFragment"
+            app:destination="@id/VideoListViewFragment" />
+    </fragment>
+
+</navigation>

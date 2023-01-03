@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <dev.ostfalia.iotcam.utils.AutoFitSurfaceView
+        android:id="@+id/view_finder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <View
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="@android:color/transparent" />
+
+    <ToggleButton
+        android:id="@+id/capture_button"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="bottom|center"
+        android:background="@drawable/ic_shutter"
+        android:contentDescription="@string/capture"
+        android:scaleType="fitCenter"
+        android:textOff="START"
+        android:textOn="STOP" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:indeterminate="false"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:layout_gravity="bottom|center"
+        android:scaleType="fitCenter"
+        android:indeterminateDrawable="@drawable/circular_progress_bar"
+
+        android:background="@drawable/circle_shape"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
+        android:progress="0" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/resolution_slider"
+
+        android:layout_gravity="top|center"
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        >
+
+    </com.google.android.material.slider.Slider>
+
+
+</FrameLayout>
